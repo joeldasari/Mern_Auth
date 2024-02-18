@@ -4,17 +4,22 @@ import bcryptjs from "bcryptjs";
 const userSignUp = async (req, res) => {
   try {
     const { username, email, password } = req.body;
+
     if (username && email && password) {
       const hashedPassword = bcryptjs.hashSync(password, 10);
+
       const newUser = await userModel.create({
         username,
         email,
         password: hashedPassword,
       });
+
       if (newUser) {
-        return res.status(200).json(newUser);
+        return res
+          .status(200)
+          .json({ message: "Your Account has been Created" });
       } else {
-        res.status(500).json({ message: "Something went wrong" });
+        return res.status(500).json({ message: "Something went wrong" });
       }
     } else {
       return res
