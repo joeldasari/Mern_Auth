@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import cors from "cors";
 import userAuthRoute from "./routes/userAuthRoute.js";
 
 dotenv.config();
@@ -10,6 +11,8 @@ const { PORT, MONGODB_URL } = process.env;
 const app = express();
 
 app.use(express.json());
+
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.send("Welcome to MERN Authentication app");

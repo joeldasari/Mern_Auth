@@ -10,16 +10,19 @@ const SignIn = () => {
             className="p-2 border-2 border-black rounded-md outline-none "
             type="text"
             placeholder="Username"
+            required
           />
           <input
             className="p-2 border-2 border-black rounded-md outline-none "
             type="text"
             placeholder="Email"
+            required
           />
           <input
             className="p-2 border-2 border-black rounded-md outline-none "
             type="text"
             placeholder="Password"
+            required
           />
           <button
             className="p-2 text-white bg-black rounded-md hover:opacity-80"
